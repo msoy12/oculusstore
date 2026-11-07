@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Oculus Viridis Hub • Dağıtım & Ekosistem</title>
+    <title>Oculus Viridis • Resmi Uygulama Mağazası & Dağıtım Ağı</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -20,7 +20,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 16px; overflow-x: hidden; }
 
-        /* ÜST PANEL */
         nav { width: 100%; max-width: 1050px; height: 75px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
         .logo { font-size: 19px; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; }
         .logo-icon { width: 22px; height: 22px; background: var(--accent-green); border-radius: 6px; box-shadow: 0 0 10px rgba(0,230,118,0.5); }
@@ -28,26 +27,26 @@
         .nav-btn { background: #161C26; border: 1px solid var(--card-border); color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: 0.2s; }
         .nav-btn:hover { background: var(--card-border); border-color: var(--accent-blue); }
 
-        /* HERO - DOĞRUDAN DAĞITIM */
+        /* HERO - OCULUS VIRIDIS ANA DAĞITIM */
         .hero { text-align: center; max-width: 850px; margin-top: 45px; display: flex; flex-direction: column; align-items: center; }
         .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.25); color: var(--accent-green); font-size: 11px; font-weight: 800; padding: 6px 14px; border-radius: 20px; margin-bottom: 18px; }
-        .hero-title { font-size: 38px; font-weight: 800; line-height: 1.2; margin-bottom: 14px; }
-        .hero-title span { color: var(--accent-blue); }
-        .hero-desc { color: var(--text-muted); font-size: 15px; max-width: 620px; line-height: 1.6; margin-bottom: 26px; }
+        .hero-title { font-size: 40px; font-weight: 800; line-height: 1.2; margin-bottom: 14px; }
+        .hero-title span { color: var(--accent-green); }
+        .hero-desc { color: var(--text-muted); font-size: 15px; max-width: 650px; line-height: 1.6; margin-bottom: 26px; }
 
         .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-        .btn-main { background: var(--accent-blue); color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; padding: 14px 30px; border-radius: 10px; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 20px rgba(0,112,243,0.4); }
+        .btn-main { background: var(--accent-green); color: #000; text-decoration: none; font-size: 15px; font-weight: 800; padding: 15px 32px; border-radius: 10px; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 20px rgba(0,230,118,0.35); }
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,230,118,0.5); }
         .btn-main:active { transform: scale(0.97); }
 
-        /* CANLI BİLGİ BANDI */
         .live-ticker {
-            width: 100%; max-width: 1050px; background: rgba(0, 112, 243, 0.08); border: 1px solid rgba(0, 112, 243, 0.2);
+            width: 100%; max-width: 1050px; background: rgba(0, 230, 118, 0.05); border: 1px solid rgba(0, 230, 118, 0.2);
             border-radius: 10px; padding: 12px 18px; margin-top: 25px; display: flex; align-items: center; justify-content: space-between;
             font-size: 13px; color: #C5D1DE;
         }
         .ticker-dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; display: inline-block; margin-right: 6px; box-shadow: 0 0 8px var(--accent-green); }
 
-        /* EKOSİSTEM KARTLARI */
+        /* MAĞAZA İÇİ MODÜLLER */
         .section { width: 100%; max-width: 1050px; margin-top: 40px; }
         .section-header { margin-bottom: 18px; display: flex; justify-content: space-between; align-items: flex-end; }
         .section-title { font-size: 18px; font-weight: 800; }
@@ -57,8 +56,8 @@
         .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; }
         .card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .app-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; color: #fff; }
+        .icon-ov { background: var(--accent-green); color: #000; }
         .icon-sk { background: #0070F3; }
-        .icon-fh { background: #00E676; color: #000; }
         .icon-bb { background: #FF9100; }
 
         .app-meta h3 { font-size: 16px; font-weight: 700; }
@@ -68,16 +67,14 @@
         .tags { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
         .tag { font-size: 10px; font-weight: 700; background: #161D27; border: 1px solid var(--card-border); padding: 3px 8px; border-radius: 4px; color: #8FA2B8; }
 
-        .card-btn { background: #1C2432; border: 1px solid rgba(255,255,255,0.06); color: #fff; padding: 11px; border-radius: 8px; font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; transition: 0.2s; display: block; }
-        .card-btn:hover { background: var(--accent-blue); }
+        .card-status { background: #151A24; border: 1px solid rgba(255,255,255,0.06); color: #A0AEC0; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: 700; text-align: center; }
 
-        /* GELİŞMİŞ AKILLI AI PANELİ */
+        /* AI TERMİNALİ */
         .ai-hub { width: 100%; max-width: 1050px; background: #0D1118; border: 1px solid var(--card-border); border-radius: 14px; padding: 22px; margin-top: 40px; margin-bottom: 50px; }
         .ai-title { font-size: 15px; font-weight: 800; color: var(--accent-purple); display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
         .ai-input-wrap { display: flex; gap: 10px; margin-top: 12px; }
         .ai-input { flex: 1; background: #141923; border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 13px; outline: none; }
-        .ai-btn { background: var(--accent-purple); border: none; color: #fff; font-weight: 700; padding: 0 22px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: 0.2s; }
-        .ai-btn:hover { opacity: 0.9; }
+        .ai-btn { background: var(--accent-purple); border: none; color: #fff; font-weight: 700; padding: 0 22px; border-radius: 8px; cursor: pointer; font-size: 13px; }
         .ai-res { font-size: 13px; color: #D5DFEB; line-height: 1.6; margin-top: 14px; padding: 14px; background: #121620; border-radius: 8px; border-left: 3px solid var(--accent-purple); }
 
         #toast { position: fixed; bottom: 30px; background: var(--accent-green); color: #000; font-weight: 800; font-size: 13px; padding: 14px 26px; border-radius: 30px; display: none; z-index: 1000; box-shadow: 0 8px 30px rgba(0,230,118,0.4); }
@@ -96,117 +93,119 @@
         </div>
     </nav>
 
+    <!-- ANA HERO: OCULUS VIRIDIS STORE İNDİRME -->
     <div class="hero">
-        <div class="hero-badge">⚡ RESMİ DOĞRULANMIŞ APK DAĞITIM NOKTASI</div>
-        <h1 class="hero-title">Oculus Viridis ile <span>Doğrudan Cihaza Kurulum</span></h1>
-        <p class="hero-desc">SlotKap Maçkolik motoru, Passolig etkinlik altyapısı ve Futbolland veri portalı şimdi tek bir pakette yayında.</p>
+        <div class="hero-badge">⚡ RESMİ ANDROID UYGULAMA MAĞAZASI & BAŞLATICI</div>
+        <h1 class="hero-title">Özgür Dağıtımın Merkezi <span>Oculus Viridis</span></h1>
+        <p class="hero-desc">SlotKap spor & bilet motoru, Futbolland ve Bulbulsun ekosistemini doğrudan cihazınızdan çalıştırmak için resmi Oculus Store mağaza başlatıcısını kurun.</p>
         <div class="hero-buttons">
-            <!-- Doğrudan APK İndirme Bağlantısı -->
-            <a href="slotcup.apk" download="SlotKap_Pro_Official.apk" class="btn-main" onclick="triggerDownload('SlotKap Pro')">
-                📥 SlotKap Pro APK İndir (Doğrudan Kurulum)
+            <!-- Asıl inen dosya: Oculus Viridis Launcher/Store APK -->
+            <a href="oculusviridis.apk" download="OculusViridis_Store.apk" class="btn-main" onclick="triggerDownload('Oculus Viridis Store')">
+                📥 Oculus Viridis APK İndir (Resmi Mağaza v1.0)
             </a>
         </div>
     </div>
 
     <div class="live-ticker">
-        <div><span class="ticker-dot"></span><b>Sistem & Veri Akışı:</b> Maçkolik REST motoru, Futbolland veri çekirdeği ve biletleme protokolü devrede.</div>
-        <span style="color: var(--accent-green); font-weight: 700;">● %100 ÜCRETSİZ & AKTİF</span>
+        <div><span class="ticker-dot"></span><b>Oculus Core Durumu:</b> Bağımsız mağaza mimarisi, AES-256 KeyStore güvenliği ve APK paketleme hattı aktif.</div>
+        <span style="color: var(--accent-green); font-weight: 700;">● ÇEKİRDEK AKTİF</span>
     </div>
 
+    <!-- MAĞAZA İÇİNDE YER ALACAK UYGULAMALAR -->
     <div class="section">
         <div class="section-header">
             <div>
-                <div class="section-title">Aktif Modüller & İndirme Seçenekleri</div>
-                <div class="section-sub">Tüm bileşenler optimize edildi ve doğrudan indirmeye bağlandı.</div>
+                <div class="section-title">Oculus Store İle Gelecek Uygulamalar</div>
+                <div class="section-sub">Oculus Viridis kurulduktan sonra mağaza arayüzünden doğrudan erişilecek paketler:</div>
             </div>
         </div>
 
         <div class="grid">
-            <!-- 1. SlotKap Pro -->
+            <!-- 1. SlotKap -->
             <div class="card">
                 <div>
                     <div class="card-top">
                         <div class="app-icon icon-sk">SK</div>
                         <div class="app-meta">
                             <h3>SlotKap Pro</h3>
-                            <p>Spor, Bilet & Canlı Takip • v3.0</p>
+                            <p>Spor, Bilet & Etkinlik • Mağaza İçi</p>
                         </div>
                     </div>
                     <div class="tags">
-                        <span class="tag">Maçkolik Entegre</span>
+                        <span class="tag">Maçkolik API</span>
                         <span class="tag">Passolig Bilet</span>
-                        <span class="tag">Tiyatro / Etkinlik</span>
+                        <span class="tag">Tiyatro / Maç</span>
                     </div>
-                    <div class="card-desc">Canlı skorlar, lig maçları, basketbol, voleybol ve tiyatro etkinlik rezervasyonları için ana dağıtım paketi.</div>
+                    <div class="card-desc">Canlı skorlar, lig fikstürleri ve Passolig benzeri etkinlik bilet yönetim ağı. Oculus Store içinden tek tıkla yüklenir.</div>
                 </div>
-                <a href="slotcup.apk" download="SlotKap_Pro.apk" class="card-btn" onclick="triggerDownload('SlotKap Pro')">Hemen İndir (APK)</a>
+                <div class="card-status">📦 Oculus Store İçinden Kurulur</div>
             </div>
 
-            <!-- 2. Futbolland Hub -->
+            <!-- 2. Futbolland -->
             <div class="card">
                 <div>
                     <div class="card-top">
-                        <div class="app-icon icon-fh">FH</div>
+                        <div class="app-icon icon-sk" style="background: #2563EB;">FL</div>
                         <div class="app-meta">
                             <h3>Futbolland Hub</h3>
-                            <p>Veri & Analiz Platformu</p>
+                            <p>Veri & Piyasa Değeri • Entegre Motor</p>
                         </div>
                     </div>
                     <div class="tags">
-                        <span class="tag">Transfermarkt Modeli</span>
-                        <span class="tag">Oyuncu Değerleri</span>
+                        <span class="tag">Transfer Analizi</span>
+                        <span class="tag">Kadro Değeri</span>
                     </div>
-                    <div class="card-desc">Oyuncu piyasa değerleri, kadro analizleri ve lig performans metriklerini işleyen veri tabanı portalı.</div>
+                    <div class="card-desc">Transfermarkt mimarisiyle takım ve oyuncu istatistiklerini işleyen veri tabanı modülü.</div>
                 </div>
-                <a href="slotcup.apk" download="Futbolland_Core.apk" class="card-btn" onclick="triggerDownload('Futbolland Core')">Veri Paketini İndir</a>
+                <div class="card-status">📊 SlotKap & Oculus Entegre</div>
             </div>
 
-            <!-- 3. Bulbulsun Ticaret -->
+            <!-- 3. Bulbulsun -->
             <div class="card">
                 <div>
                     <div class="card-top">
                         <div class="app-icon icon-bb">BB</div>
                         <div class="app-meta">
                             <h3>Bulbulsun</h3>
-                            <p>Rezervasyon & Fırsat</p>
+                            <p>Bölgesel Ticaret & Fırsat • Mağaza İçi</p>
                         </div>
                     </div>
                     <div class="tags">
                         <span class="tag">Son Dakika Kupon</span>
-                        <span class="tag">Yerel Mağazalar</span>
+                        <span class="tag">Randevu Ağı</span>
                     </div>
-                    <div class="card-desc">Bölgesel işletme indirimleri, servis randevuları ve anlık fırsat takip modülü.</div>
+                    <div class="card-desc">Yerel işletmelerin son dakika servis indirimleri ve onaylı kuponlarını yöneten pazar yeri modülü.</div>
                 </div>
-                <a href="slotcup.apk" download="Bulbulsun.apk" class="card-btn" onclick="triggerDownload('Bulbulsun')">Hemen İndir (APK)</a>
+                <div class="card-status">📦 Oculus Store İçinden Kurulur</div>
             </div>
         </div>
     </div>
 
-    <!-- GELİŞMİŞ SİSTEMATİK YAPAY ZEKA ASİSTANI -->
+    <!-- SİSTEMATİK ASİSTAN -->
     <div class="ai-hub">
-        <div class="ai-title">🤖 Oculus Core • Dinamik Sistem Asistanı</div>
-        <p style="font-size: 12px; color: var(--text-muted);">SlotKap, Maçkolik motoru, bilet protokolleri veya altyapı hakkında teknik sorular sorun.</p>
+        <div class="ai-title">🤖 Oculus Core • Sistem & Mimari Asistanı</div>
+        <p style="font-size: 12px; color: var(--text-muted);">Oculus Store'un nasıl çalıştığını, mimarisini ve SlotKap entegrasyonunu sorun.</p>
         <div class="ai-input-wrap">
-            <input type="text" id="aiInput" class="ai-input" placeholder="Örn: 'SlotKap hangi sistemleri barındırıyor?', 'APK nasıl kurulur?', 'Sistem güvenliği'">
+            <input type="text" id="aiInput" class="ai-input" placeholder="Örn: 'Oculus Viridis nedir?', 'SlotKap nasıl yüklenecek?', 'Güvenlik kalkanı'">
             <button class="ai-btn" onclick="askCoreAI()">Sorgula</button>
         </div>
-        <div class="ai-res" id="aiRes">Oculus Core AI aktif. Sistematik analiz motoru hazır.</div>
+        <div class="ai-res" id="aiRes">Oculus Core devrede. Mağaza hiyerarşisi ve teknik parametreler hakkında sorgu yapabilirsiniz.</div>
     </div>
 
     <div id="toast"></div>
 
     <footer>
-        © 2026 Oculus Viridis Ekosistemi • Kalıcı ve Ücretsiz Dağıtım Merkezi
+        © 2026 Oculus Viridis Ecosystem • Bağımsız Android Dağıtım Merkezi
     </footer>
 
     <script>
         function triggerDownload(name) {
-            showToast("📥 " + name + " paketi doğrudan cihazınıza indiriliyor...");
+            showToast("📥 " + name + " kurulum paketi indiriliyor... Lütfen bekleyin.");
         }
 
         function shareProject() {
             navigator.clipboard.writeText(window.location.href);
-            showToast("🔗 Proje linki panoya kopyalandı!");
+            showToast("🔗 Oculus Viridis bağlantısı kopyalandı!");
         }
 
         function showToast(msg) {
@@ -216,7 +215,6 @@
             setTimeout(() => { toast.style.display = 'none'; }, 3000);
         }
 
-        // GELİŞMİŞ ANALİTİK YAPAY ZEKA MOTORU
         function askCoreAI() {
             const query = document.getElementById('aiInput').value.toLowerCase().trim();
             const res = document.getElementById('aiRes');
@@ -224,20 +222,14 @@
 
             let response = "";
 
-            if (query.includes('slotkap') || query.includes('bilet') || query.includes('tiyatro') || query.includes('etkinlik') || query.includes('pasolik') || query.includes('passolig')) {
-                response = "<b>[SlotKap Ekosistemi]:</b> SlotKap, yalnızca bir skor uygulaması değildir. Maçkolik veritabanı ile eşzamanlı çalışarak futbol, basketbol ve voleybol liglerini anlık takip eder. Ek olarak tiyatro ve müsabaka biletlemelerini Passolig mimarisiyle tek merkezde toplayan bağımsız dağıtım amiral gemisidir.";
-            } else if (query.includes('apk') || query.includes('nasıl') || query.includes('kurulur') || query.includes('indir')) {
-                response = "<b>[Dağıtım Protokolü]:</b> Sitedeki indirme butonuna bastığınız anda <code>slotcup.apk</code> paketi cihazınıza iner. Android cihazınızda 'Bilinmeyen kaynaklara izin ver' onayını verdikten sonra doğrudan kurulum tamamlanır. Google Play servislerine bağımlı değildir.";
-            } else if (query.includes('futbolland') || query.includes('transfer') || query.includes('piyasa')) {
-                response = "<b>[Futbolland Hub]:</b> Transfermarkt analiz altyapısından ilham alan Futbolland; oyuncu değerleme modelleri, fikstür dinamikleri ve maç istatistiklerini işleyerek SlotKap platformuna arka plan veri akışı sağlar.";
-            } else if (query.includes('bulbul') || query.includes('kupon') || query.includes('rezervasyon')) {
-                response = "<b>[Bulbulsun Ticaret]:</b> Yerel işletmelerin son dakika randevularını, boş kontenjanlarını ve dinamik indirim kuponlarını kullanıcılara ulaştıran bölgesel pazar yeri modülüdür.";
-            } else if (query.includes('güvenlik') || query.includes('aes') || query.includes('root') || query.includes('kasa')) {
-                response = "<b>[Oculus Güvenlik Katmanı]:</b> Oculus Viridis çekirdeği, Android KeyStore AES-256 donanım şifrelemesi ve Root Kalkanı ile tersine mühendislik girişimlerine karşı tam koruma sağlar.";
-            } else if (query.includes('ücret') || query.includes('fiyat') || query.includes('para')) {
-                response = "<b>[Altyapı Durumu]:</b> Dağıtım ağımız GitHub Pages açık kaynak protokolü üzerinde barındırılmaktadır. 1 ay sonra veya gelecekte kesinlikle ücretlendirilmez; tamamen ücretsiz ve kalıcıdır.";
+            if (query.includes('oculus') || query.includes('mağaza') || query.includes('nedir')) {
+                response = "<b>[Oculus Viridis]:</b> Bağımsız Android uygulama mağazası ve sistem başlatıcısıdır. Kullanıcılar dışarıdan tek tek APK aramak yerine Oculus Store'u bir kez kurar; SlotKap, Futbolland ve Bulbulsun gibi tüm modülleri mağaza içinden güvenle yönetir.";
+            } else if (query.includes('slotkap') || query.includes('yükle') || query.includes('nasıl')) {
+                response = "<b>[SlotKap Dağıtımı]:</b> SlotKap, web sitesinde bağımsız bir APK olarak değil, doğrudan telefonunuza kuracağınız Oculus Viridis Store içerisinden tek dokunuşla cihazınıza indirilir ve güncellenir.";
+            } else if (query.includes('güvenlik') || query.includes('aes') || query.includes('root')) {
+                response = "<b>[Güvenlik Mimarisi]:</b> Oculus Viridis, Android KeyStore AES-256 donanım tabanlı koruma kalkanı barındırır. Mağaza üzerinden inen tüm uygulamalar root müdahalelerine karşı doğrulanır.";
             } else {
-                response = "<b>[Oculus Core]:</b> '" + query + "' sorgusu ekosistem parametrelerinde analiz edildi. SlotKap, Futbolland ve Bulbulsun servisleri 120Hz hızında aktif ve indirmeye hazırdır.";
+                response = "<b>[Oculus Core]:</b> '" + query + "' sorgusu işlendi. Oculus Viridis ana mağaza APK dağıtımı devrede, sistem vitrini aktif.";
             }
 
             res.innerHTML = "🤖 " + response;
