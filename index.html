@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Oculus Viridis - Geleceğin Uygulama Mağazası</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090B0E;
+            --card-bg: #11141A;
+            --card-border: #1B202A;
+            --accent-green: #00E676;
+            --accent-blue: #0070F3;
+            --accent-purple: #8B5CF6;
+            --text-main: #FFFFFF;
+            --text-muted: #8E9BAE;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 20px; overflow-x: hidden; }
+
+        /* NAVBAR */
+        nav { width: 100%; max-width: 1100px; height: 80px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; }
+        .logo-icon { width: 24px; height: 24px; background: var(--accent-green); border-radius: 6px; display: inline-block; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .nav-link:hover { color: #fff; }
+        .nav-btn { background: #181D26; border: 1px solid var(--card-border); color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        .nav-btn:hover { background: var(--card-border); border-color: var(--accent-blue); }
+
+        /* HERO ALANI */
+        .hero { text-align: center; max-width: 800px; margin-top: 60px; display: flex; flex-direction: column; align-items: center; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.25); color: var(--accent-green); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px; letter-spacing: 0.5px; }
+        .hero-title { font-size: 46px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .hero-title span { color: #2979FF; }
+        .hero-desc { color: var(--text-muted); font-size: 16px; max-width: 600px; line-height: 1.6; margin-bottom: 32px; }
+
+        .hero-buttons { display: flex; gap: 14px; }
+        .btn-main { background: var(--accent-blue); color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 10px; display: flex; align-items: center; gap: 8px; border: none; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 20px rgba(0,112,243,0.35); }
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,112,243,0.5); }
+        .btn-secondary { background: #141820; border: 1px solid var(--card-border); color: #fff; font-size: 14px; font-weight: 700; padding: 14px 26px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+        .btn-secondary:hover { background: var(--card-border); }
+
+        /* KARTLAR LİSTESİ */
+        .section { width: 100%; max-width: 1100px; margin-top: 70px; }
+        .section-header { margin-bottom: 20px; }
+        .section-title { font-size: 18px; font-weight: 800; }
+        .section-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
+        .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; position: relative; }
+        .card:hover { border-color: #263040; transform: translateY(-3px); }
+
+        .card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .app-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; color: #fff; }
+        .icon-sk { background: #0070F3; }
+        .icon-fh { background: #00E676; color: #000; }
+        .icon-ce { background: #9333EA; }
+
+        .app-meta h3 { font-size: 16px; font-weight: 700; }
+        .app-meta p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+        .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px; }
+        .card-btn { background: #1C222D; border: 1px solid rgba(255,255,255,0.06); color: #fff; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; transition: 0.2s; }
+        .card-btn:hover { background: var(--accent-blue); }
+
+        /* AI ASİSTAN KUTUSU */
+        .ai-hub { width: 100%; max-width: 1100px; background: #0E1117; border: 1px solid var(--card-border); border-radius: 14px; padding: 24px; margin-top: 50px; margin-bottom: 60px; }
+        .ai-title { font-size: 16px; font-weight: 800; color: var(--accent-purple); display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .ai-input-wrap { display: flex; gap: 10px; margin-top: 14px; }
+        .ai-input { flex: 1; background: #161A22; border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 13px; outline: none; }
+        .ai-btn { background: var(--accent-purple); border: none; color: #fff; font-weight: 700; padding: 0 20px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+        .ai-res { font-size: 13px; color: #C5D1DE; line-height: 1.6; margin-top: 14px; padding: 12px; background: #13171F; border-radius: 8px; border-left: 3px solid var(--accent-purple); }
+
+        /* BİLDİRİM TOAST */
+        #toast { position: fixed; bottom: 30px; background: #00E676; color: #000; font-weight: 800; font-size: 13px; padding: 12px 24px; border-radius: 30px; box-shadow: 0 8px 30px rgba(0,230,118,0.4); display: none; z-index: 1000; }
+
+        footer { margin-top: auto; padding: 30px 0; font-size: 12px; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.05); width: 100%; max-width: 1100px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-icon"></span>
+            Oculus Viridis
+        </a>
+        <div class="nav-links">
+            <a class="nav-link" href="#vitrin">Mağaza Vitrini</a>
+            <a class="nav-link" href="#ai-bolumu">Oculus AI</a>
+            <button class="nav-btn" onclick="shareProject()">🔗 Bağlantıyı Kopyala</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">⚡ YENİ NESİL DİJİTAL EKOSİSTEM V3.0</div>
+        <h1 class="hero-title">Geleceğin Uygulama Mağazası <span>Oculus Store</span></h1>
+        <p class="hero-desc">SlotKap Pro, Futbolland Hub ve onlarca bağımsız geliştirici projesini tek merkezden keşfet, yükle ve anında çalıştır.</p>
+        <div class="hero-buttons">
+            <!-- Doğrudan APK İndiren Buton -->
+            <a href="slotcup.apk" download="SlotCup.apk" class="btn-main" onclick="startDownload('Oculus Store Hub')">
+                📥 APK İndir (v3.0)
+            </a>
+            <button class="btn-secondary" onclick="publishProjectPrompt()">Projini Yayınla</button>
+        </div>
+    </div>
+
+    <!-- MAĞAZA VİTRİNİ -->
+    <div class="section" id="vitrin">
+        <div class="section-header">
+            <div class="section-title">Öne Çıkan Projeler</div>
+            <div class="section-sub">Topluluğun en çok indirdiği ve test ettiği kararlı yapımlar.</div>
+        </div>
+
+        <div class="grid">
+            <!-- 1. SlotKap Pro -->
+            <div class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="app-icon icon-sk">SK</div>
+                        <div class="app-meta">
+                            <h3>SlotKap Pro</h3>
+                            <p>Spor • 24 MB • ★ 4.9</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Halı saha rezervasyonları, takım kurma ve saniyesinde canlı skor takip sistemi (Maçkolik veri tabanı entegre).</div>
+                </div>
+                <a href="slotcup.apk" download="SlotKapPro.apk" class="card-btn" onclick="startDownload('SlotKap Pro')">Yükle</a>
+            </div>
+
+            <!-- 2. Futbolland Hub -->
+            <div class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="app-icon icon-fh">FH</div>
+                        <div class="app-meta">
+                            <h3>Futbolland Hub</h3>
+                            <p>Spor • 19 MB • ★ 4.7</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Süper Lig ve Avrupa ligleri anlık veri akışı, transfer analiz ve istatistik merkezi.</div>
+                </div>
+                <a href="slotcup.apk" download="FutbollandHub.apk" class="card-btn" onclick="startDownload('Futbolland Hub')">Yükle</a>
+            </div>
+
+            <!-- 3. Cyber Energy -->
+            <div class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="app-icon icon-ce">CE</div>
+                        <div class="app-meta">
+                            <h3>Cyber Energy</h3>
+                            <p>Oyunlar • 35 MB • ★ 4.8</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Mobil cihazınızın GPU ve 120Hz ekran gücünü test eden yeni nesil OLED siber arayüz optimizasyonu.</div>
+                </div>
+                <a href="slotcup.apk" download="CyberEnergy.apk" class="card-btn" onclick="startDownload('Cyber Energy')">Yükle</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- OCULUS AI ASİSTANI -->
+    <div class="ai-hub" id="ai-bolumu">
+        <div class="ai-title">🤖 Oculus Core Yapay Zeka Asistanı</div>
+        <p style="font-size: 12px; color: var(--text-muted);">Uygulamaların özellikleri, APK kurulum adımları veya veri tabanı hakkında soru sorun.</p>
+        <div class="ai-input-wrap">
+            <input type="text" id="aiInput" class="ai-input" placeholder="Örn: 'SlotKap Pro nedir?', 'Futbolland verileri nereden geliyor?'">
+            <button class="ai-btn" onclick="askOculusAI()">Sor</button>
+        </div>
+        <div class="ai-res" id="aiRes">AI Asistanı hazır. Ekosistem hakkında dilediğinizi yazabilirsiniz.</div>
+    </div>
+
+    <!-- TOAST MESAJI -->
+    <div id="toast"></div>
+
+    <footer>
+        © 2026 Oculus Viridis Ekosistemi. Tüm hakları saklıdır. Bağımsız Mobil Dağıtım Ağı.
+    </footer>
+
+    <script>
+        // APK İndirme Tetikleyici
+        function startDownload(appName) {
+            showToast("📥 " + appName + " APK indiriliyor... İndirilenler klasörüne bakın.");
+        }
+
+        // Projeyi Yayınla Butonu
+        function publishProjectPrompt() {
+            const projectName = prompt("Yayınlamak istediğiniz projenin adını girin:");
+            if (projectName) {
+                alert("✅ '" + projectName + "' projeniz incelenmek üzere Oculus Dağıtım Havuzuna eklendi!");
+            }
+        }
+
+        // Bağlantıyı Kopyalama Fonksiyonu
+        function shareProject() {
+            navigator.clipboard.writeText(window.location.href);
+            showToast("🔗 Bağlantı kopyalandı! İstediğin kişiye gönderebilirsin.");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        // Yapay Zeka Motoru
+        function askOculusAI() {
+            const val = document.getElementById('aiInput').value.toLowerCase().trim();
+            const res = document.getElementById('aiRes');
+            if (!val) return;
+
+            if (val.includes('slotkap') || val.includes('rezervasyon') || val.includes('halı saha')) {
+                res.innerHTML = "🤖 <b>Oculus AI:</b> SlotKap Pro, takımların halı saha rezervasyonlarını yönettiği ve Maçkolik tabanlı canlı skorları 120 FPS akıcılıkla sunan amiral gemisi spor modülümüzdür.";
+            } else if (val.includes('futbolland') || val.includes('lig') || val.includes('skor')) {
+                res.innerHTML = "🤖 <b>Oculus AI:</b> Futbolland Hub, Transfermarkt ve Maçkolik veri modellerinden ilham alan, Süper Lig ve Avrupa liglerindeki oyuncu istatistiklerini derleyen analiz arayüzümüzdür.";
+            } else if (val.includes('apk') || val.includes('nasıl') || val.includes('kurulur')) {
+                res.innerHTML = "🤖 <b>Oculus AI:</b> İndirdiğiniz APK dosyasını açıp 'Bilinmeyen kaynaklara izin ver' onayını verdiğiniz anda uygulama telefonunuza doğrudan kurulur.";
+            } else if (val.includes('cyber') || val.includes('enerji')) {
+                res.innerHTML = "🤖 <b>Oculus AI:</b> Cyber Energy, cihazınızın 120Hz yenileme hızını ve GPU/donanım performansını zorlayan test motorumuzdur.";
+            } else {
+                res.innerHTML = "🤖 <b>Oculus AI:</b> '" + val + "' sorunuz analiz edildi. Oculus Viridis mağaza altyapısındaki tüm projeler (SlotKap Pro, Futbolland Hub) aktif ve senkronize durumdadır.";
+            }
+            document.getElementById('aiInput').value = '';
+        }
+    </script>
+</body>
+</html>
